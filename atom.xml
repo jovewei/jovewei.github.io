@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-01T04:37:23.356Z</updated>
+  <updated>2019-08-01T05:57:00.034Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo mathjax无法渲染</title>
+    <link href="http://yoursite.com/2019/08/01/hexo%20mathjax%E6%97%A0%E6%B3%95%E6%B8%B2%E6%9F%93/"/>
+    <id>http://yoursite.com/2019/08/01/hexo mathjax无法渲染/</id>
+    <published>2019-08-01T04:40:28.000Z</published>
+    <updated>2019-08-01T05:57:00.034Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文主要记录出现问题，去找问题，踩了一些坑，最后回归本源找到问题并解决问题的过程</p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>本地能正确显示，推到博客上就无法显示</p><h1 id="找问题的过程"><a href="#找问题的过程" class="headerlink" title="找问题的过程"></a>找问题的过程</h1><h2 id="怀疑主题没有做很好的兼容"><a href="#怀疑主题没有做很好的兼容" class="headerlink" title="怀疑主题没有做很好的兼容"></a>怀疑主题没有做很好的兼容</h2><p>一开始是怀疑这个问题的，因为这个主题的作者太佛系，介绍也就一句话，issue也少，fork人气也不高  </p><h2 id="怀疑插件问题"><a href="#怀疑插件问题" class="headerlink" title="怀疑插件问题"></a>怀疑插件问题</h2><p>之所以怀疑这个问题，是因为google相关问题后，一堆出现推荐xxx插件的博文，点开一看其实都一篇，到处复制而已。<br>然后我也屁颠屁颠试咯下，结果仍然是不行</p><h2 id="对比性测试"><a href="#对比性测试" class="headerlink" title="对比性测试"></a>对比性测试</h2><h2 id="回到最开始状态"><a href="#回到最开始状态" class="headerlink" title="回到最开始状态"></a>回到最开始状态</h2><h2 id="仔细观察，加载不安全脚本就能显示"><a href="#仔细观察，加载不安全脚本就能显示" class="headerlink" title="仔细观察，加载不安全脚本就能显示"></a>仔细观察，加载不安全脚本就能显示</h2><h2 id="终于找到问题"><a href="#终于找到问题" class="headerlink" title="终于找到问题"></a>终于找到问题</h2><h1 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h1><h2 id="关闭https"><a href="#关闭https" class="headerlink" title="关闭https"></a>关闭https</h2><h2 id="脚本链接选择https"><a href="#脚本链接选择https" class="headerlink" title="脚本链接选择https"></a>脚本链接选择https</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本文主要记录出现问题，去找问题，踩了一些坑，最后回归本源找到问题并解决问题的过程&lt;/p&gt;
+&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;p&gt;本地能正确显示，推到博客上就无法显示&lt;/p&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="mathjax" scheme="http://yoursite.com/tags/mathjax/"/>
+    
+  </entry>
   
   <entry>
     <title>Linear Regression</title>
