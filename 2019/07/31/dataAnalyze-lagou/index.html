@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Python拉勾职位信息数据分析 | Bryce&#39;s ox</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="数据分析,python,">
+  
+
+  <meta name="description" content="本篇基于上一篇python爬取拉勾职位信息文章中爬取到的拉勾的职位信息进行数据清洗，最后进行数据可视化分析  需求爬取数据只是第一步，真正的需求是对数据进行分析，得到我们想要的信息。在本次任务中，我想获取到成都的机器学习算法岗位的相关的分析：  薪资的分布情况 薪资与区域分布 薪资与学历关系 薪资与工作年限关系 提供岗位的吸睛点 岗位的共性要求  问题从上篇的获取到的数据来看，数据中存在影响本次">
+<meta name="keywords" content="数据分析,python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python拉勾职位信息数据分析">
+<meta property="og:url" content="http://yoursite.com/2019/07/31/dataAnalyze-lagou/index.html">
+<meta property="og:site_name" content="Bryce&#39;s ox">
+<meta property="og:description" content="本篇基于上一篇python爬取拉勾职位信息文章中爬取到的拉勾的职位信息进行数据清洗，最后进行数据可视化分析  需求爬取数据只是第一步，真正的需求是对数据进行分析，得到我们想要的信息。在本次任务中，我想获取到成都的机器学习算法岗位的相关的分析：  薪资的分布情况 薪资与区域分布 薪资与学历关系 薪资与工作年限关系 提供岗位的吸睛点 岗位的共性要求  问题从上篇的获取到的数据来看，数据中存在影响本次">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/assets/blogimg/spider/dataanalyize_lagou_1.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogimg/spider/output_7_0.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogimg/spider/output_9_0.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogimg/spider/output_11_0.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogimg/spider/output_13_0.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogimg/spider/output_15_0.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogimg/spider/output_17_0.png">
+<meta property="og:updated_time" content="2019-07-31T11:39:46.515Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python拉勾职位信息数据分析">
+<meta name="twitter:description" content="本篇基于上一篇python爬取拉勾职位信息文章中爬取到的拉勾的职位信息进行数据清洗，最后进行数据可视化分析  需求爬取数据只是第一步，真正的需求是对数据进行分析，得到我们想要的信息。在本次任务中，我想获取到成都的机器学习算法岗位的相关的分析：  薪资的分布情况 薪资与区域分布 薪资与学历关系 薪资与工作年限关系 提供岗位的吸睛点 岗位的共性要求  问题从上篇的获取到的数据来看，数据中存在影响本次">
+<meta name="twitter:image" content="http://yoursite.com/assets/blogimg/spider/dataanalyize_lagou_1.png">
+
+  
+
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-144776259-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">Box</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">Box</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#需求"><span class="toc-text">需求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决方案"><span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码实现与结果"><span class="toc-text">代码实现与结果</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据清洗"><span class="toc-text">数据清洗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据分析"><span class="toc-text">数据分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#完整代码"><span class="toc-text">完整代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据清洗-1"><span class="toc-text">数据清洗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据分析-1"><span class="toc-text">数据分析</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-dataAnalyze-lagou" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Python拉勾职位信息数据分析</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.07.31</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Bryce Wei</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/数据分析/">数据分析</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <blockquote>
+<p>本篇基于上一篇<a href="https://bryce.ink/2019/07/30/spider-lagou/" target="_blank" rel="noopener">python爬取拉勾职位信息</a>文章中爬取到的拉勾的职位信息进行数据清洗，最后进行数据可视化分析</p>
+</blockquote>
+<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>爬取数据只是第一步，真正的需求是对数据进行分析，得到我们想要的信息。在本次任务中，我想获取到<strong>成都</strong>的<strong>机器学习算法</strong>岗位的相关的分析：</p>
+<ul>
+<li>薪资的分布情况</li>
+<li>薪资与区域分布</li>
+<li>薪资与学历关系</li>
+<li>薪资与工作年限关系</li>
+<li>提供岗位的吸睛点</li>
+<li>岗位的共性要求</li>
+</ul>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>从上篇的获取到的数据来看，数据中存在影响本次分析的成分：</p>
+<ul>
+<li>实习岗位，薪资明显和正式岗位差距很大，不符合我的需求  </li>
+<li>岗位薪资为区间，不便于进行数据分析展示</li>
+<li>工作年限有数字区间、应届生、不限等不统一格式</li>
+<li>其他数字字符混合的数据</li>
+<li>岗位要求数据格式混乱，标号不统一</li>
+</ul>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>针对以上问题，先进行数据清洗：</p>
+<ul>
+<li>删除实习岗位</li>
+<li>薪资取区间的前25%，比较符合实际，也便于进行数据分析</li>
+<li>工作年限取区间中值，应届生、不限和其他均取0值</li>
+<li>规模取区间中值</li>
+<li>数据分析的时候对岗位要求删除标号、空格等特殊字符</li>
+</ul>
+<h1 id="代码实现与结果"><a href="#代码实现与结果" class="headerlink" title="代码实现与结果"></a>代码实现与结果</h1><h2 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">file_name = <span class="string">"机器学习算法_成都.csv"</span></span><br><span class="line">data = pd.read_csv(file_name)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除实习岗位</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.drop(data[data[<span class="string">"职位"</span>].str.contains(<span class="string">"实习"</span>)].index, inplace=<span class="literal">True</span>)  <span class="comment"># 删除实习岗位</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>工资数据清洗：先把string类型转为数字类型，再取区间的前25%为当前职位的薪资</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">reg_num = <span class="string">'\d+'</span>  <span class="comment"># 匹配数字正则表达式</span></span><br><span class="line"></span><br><span class="line">data[<span class="string">'薪资'</span>] = data[<span class="string">'薪资'</span>].str.findall(reg_num)  <span class="comment"># 过滤只剩数字（str类型的数字）</span></span><br><span class="line">average_salary = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data[<span class="string">'薪资'</span>]:</span><br><span class="line">    salary_list = [int(j) <span class="keyword">for</span> j <span class="keyword">in</span> i]  <span class="comment"># 转为int类型，并存入list</span></span><br><span class="line">    average = salary_list[<span class="number">0</span>] + <span class="number">0.24</span> * (salary_list[<span class="number">1</span>] - salary_list[<span class="number">0</span>])</span><br><span class="line">    average_salary.append(average)</span><br><span class="line">data[<span class="string">'薪资'</span>] = average_salary</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>工作年限数据清洗：有数字的取中间值，应届或者不限以及其他的取0</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'工作年限'</span>] = data[<span class="string">'工作年限'</span>].str.findall(reg_num)</span><br><span class="line">average_exp = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data[<span class="string">'工作年限'</span>]:</span><br><span class="line">    <span class="keyword">if</span> len(i) == <span class="number">0</span>:</span><br><span class="line">        average_exp.append(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">elif</span> len(i) == <span class="number">1</span>:</span><br><span class="line">        average_exp.append(int(<span class="string">""</span>.join(i)))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        exp_list = [int(j) <span class="keyword">for</span> j <span class="keyword">in</span> i]</span><br><span class="line">        average_exp.append((exp_list[<span class="number">0</span>]+exp_list[<span class="number">1</span>])/<span class="number">2</span>)</span><br><span class="line">data[<span class="string">'工作年限'</span>] = average_exp</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>规模数据清洗：有数字的取中间值，没有数字的统一”50”</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'规模'</span>] = data[<span class="string">'规模'</span>].str.findall(reg_num)</span><br><span class="line">average_scale = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data[<span class="string">'规模'</span>]:</span><br><span class="line">    <span class="keyword">if</span> len(i) == <span class="number">0</span>:</span><br><span class="line">        average_scale.append(<span class="number">50</span>)</span><br><span class="line">    <span class="keyword">elif</span> len(i) == <span class="number">1</span>:</span><br><span class="line">        average_scale.append(int(<span class="string">""</span>.join(i)))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        scale_list = [int(j) <span class="keyword">for</span> j <span class="keyword">in</span> i]</span><br><span class="line">        average_scale.append((scale_list[<span class="number">0</span>]+scale_list[<span class="number">1</span>])/<span class="number">2</span>)</span><br><span class="line">data[<span class="string">'规模'</span>] = average_scale</span><br><span class="line"></span><br><span class="line">file2_name = <span class="string">"机器学习算法_成都_清洗后.csv"</span></span><br><span class="line">data.to_csv(file2_name)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出结果</li>
+</ul>
+<img src="/assets/blogimg/spider/dataanalyize_lagou_1.png">
+
+<h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> wordcloud <span class="keyword">import</span> WordCloud</span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"><span class="keyword">import</span> jieba.analyse</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>定义词云分析并展示，将结果保存至图片</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wordcloud_analyze_show</span><span class="params">(data, output_name)</span>:</span></span><br><span class="line">    words = jieba.cut(data, cut_all=<span class="literal">True</span>)</span><br><span class="line">    words = <span class="string">" "</span>.join(words)</span><br><span class="line">    wc = WordCloud(font_path=<span class="string">"simhei.ttf"</span>, collocations=<span class="literal">False</span>, width=<span class="number">1024</span>, height=<span class="number">768</span>, max_words=<span class="number">100</span>)</span><br><span class="line">    result = wc.generate(words)</span><br><span class="line">    plt.imshow(result)</span><br><span class="line">    plt.axis(<span class="string">"off"</span>)</span><br><span class="line">    plt.show()</span><br><span class="line">    wc.to_file(output_name+<span class="string">".png"</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>读取数据</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">file_name = <span class="string">"机器学习算法_成都_清洗后"</span></span><br><span class="line"></span><br><span class="line">data = pd.read_csv(file_name + <span class="string">".csv"</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>对“岗位要求”列的数据进行数据整合和清洗，再进行词云分析</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设定输出图形的大小</span></span><br><span class="line">plt.rcParams[<span class="string">'figure.figsize'</span>] = (<span class="number">15</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">position_detail = data[<span class="string">'岗位职责和要求'</span>]</span><br><span class="line">position_detail_text = <span class="string">""</span>.join(position_detail)</span><br><span class="line">position_detail_text = position_detail_text.replace(<span class="string">"职位描述"</span>, <span class="string">""</span>).replace(<span class="string">"任职要求"</span>, <span class="string">""</span>).replace(</span><br><span class="line">    <span class="string">":"</span>, <span class="string">""</span>).replace(<span class="string">"岗位职责"</span>, <span class="string">""</span>).replace(<span class="string">"："</span>, <span class="string">""</span>).replace(<span class="string">" "</span>, <span class="string">""</span>).replace(<span class="string">"、"</span>, <span class="string">""</span>).replace(<span class="string">"."</span>, <span class="string">""</span>).replace(<span class="string">"·"</span>, <span class="string">""</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    position_detail_text = position_detail_text.replace(str(i), <span class="string">""</span>)</span><br><span class="line">    </span><br><span class="line">wordcloud_analyze_show(position_detail_text, <span class="string">"岗位职责和要求"</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/blogimg/spider/output_7_0.png" alt="岗位职责和要求"></p>
+<ul>
+<li>对“职位诱惑”列的数据进行词云分析</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">advantages = <span class="string">" "</span>.join(data[<span class="string">"职位诱惑"</span>])</span><br><span class="line">wordcloud_analyze_show(advantages, <span class="string">"职位诱惑"</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/blogimg/spider/output_9_0.png" alt="职位诱惑"></p>
+<ul>
+<li>对薪资进行统计分析</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设定输出图形的大小</span></span><br><span class="line">plt.rcParams[<span class="string">'figure.figsize'</span>] = (<span class="number">15</span>, <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line">sns.set(font=<span class="string">'SimHei'</span>, style=<span class="string">"white"</span>, palette=<span class="string">"pastel"</span>, color_codes=<span class="literal">True</span>)</span><br><span class="line">sns.distplot(data[<span class="string">"薪资"</span>])</span><br><span class="line">sns.despine(left=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/blogimg/spider/output_11_0.png" alt="薪资"></p>
+<ul>
+<li>将“学历”和薪资联合进行关联分析</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.stripplot(x=<span class="string">"学历"</span>, y=<span class="string">"薪资"</span>, data=data)</span><br><span class="line">sns.despine(left=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/blogimg/spider/output_13_0.png" alt="学历与薪资"></p>
+<ul>
+<li>将“区域”和薪资联合进行关联分析</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.stripplot(x=<span class="string">"区域"</span>, y=<span class="string">"薪资"</span>, data=data)</span><br><span class="line">sns.despine(left=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/blogimg/spider/output_15_0.png" alt="区域与薪资"></p>
+<ul>
+<li>将“工作年限”和薪资联合进行关联分析</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.stripplot(x=<span class="string">"工作年限"</span>, y=<span class="string">"薪资"</span>, data=data)</span><br><span class="line">sns.despine(left=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/blogimg/spider/output_17_0.png" alt="工作年限与薪资"></p>
+<h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><h2 id="数据清洗-1"><a href="#数据清洗-1" class="headerlink" title="数据清洗"></a>数据清洗</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    file_name = <span class="string">"机器学习算法_成都.csv"</span></span><br><span class="line">    data = pd.read_csv(file_name)</span><br><span class="line">    data.drop(data[data[<span class="string">"职位"</span>].str.contains(<span class="string">"实习"</span>)].index, inplace=<span class="literal">True</span>)  <span class="comment"># 删除实习岗位</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 工资数据清洗</span></span><br><span class="line">    reg_num = <span class="string">'\d+'</span>  <span class="comment"># 匹配数字正则表达式</span></span><br><span class="line">    data[<span class="string">'薪资'</span>] = data[<span class="string">'薪资'</span>].str.findall(reg_num)  <span class="comment"># 过滤只剩数字（str类型的数字）</span></span><br><span class="line">    average_salary = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> data[<span class="string">'薪资'</span>]:</span><br><span class="line">        salary_list = [int(j) <span class="keyword">for</span> j <span class="keyword">in</span> i]  <span class="comment"># 转为int类型，并存入list</span></span><br><span class="line">        average = salary_list[<span class="number">0</span>] + <span class="number">0.24</span> * (salary_list[<span class="number">1</span>] - salary_list[<span class="number">0</span>])</span><br><span class="line">        average_salary.append(average)</span><br><span class="line">    data[<span class="string">'薪资'</span>] = average_salary</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 工作年限数据清洗</span></span><br><span class="line">    data[<span class="string">'工作年限'</span>] = data[<span class="string">'工作年限'</span>].str.findall(reg_num)</span><br><span class="line">    average_exp = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> data[<span class="string">'工作年限'</span>]:</span><br><span class="line">        <span class="keyword">if</span> len(i) == <span class="number">0</span>:</span><br><span class="line">            average_exp.append(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">elif</span> len(i) == <span class="number">1</span>:</span><br><span class="line">            average_exp.append(int(<span class="string">""</span>.join(i)))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            exp_list = [int(j) <span class="keyword">for</span> j <span class="keyword">in</span> i]</span><br><span class="line">            average_exp.append((exp_list[<span class="number">0</span>]+exp_list[<span class="number">1</span>])/<span class="number">2</span>)</span><br><span class="line">    data[<span class="string">'工作年限'</span>] = average_exp</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 规模数据清洗</span></span><br><span class="line">    data[<span class="string">'规模'</span>] = data[<span class="string">'规模'</span>].str.findall(reg_num)</span><br><span class="line">    average_scale = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> data[<span class="string">'规模'</span>]:</span><br><span class="line">        <span class="keyword">if</span> len(i) == <span class="number">0</span>:</span><br><span class="line">            average_scale.append(<span class="number">200</span>)</span><br><span class="line">        <span class="keyword">elif</span> len(i) == <span class="number">1</span>:</span><br><span class="line">            average_scale.append(int(<span class="string">""</span>.join(i)))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            scale_list = [int(j) <span class="keyword">for</span> j <span class="keyword">in</span> i]</span><br><span class="line">            average_scale.append((scale_list[<span class="number">0</span>]+scale_list[<span class="number">1</span>])/<span class="number">2</span>)</span><br><span class="line">    data[<span class="string">'规模'</span>] = average_scale</span><br><span class="line"></span><br><span class="line">    file2_name = <span class="string">"机器学习算法_成都_清洗后.csv"</span></span><br><span class="line">    data.to_csv(file2_name)</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据分析-1"><a href="#数据分析-1" class="headerlink" title="数据分析"></a>数据分析</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> wordcloud <span class="keyword">import</span> WordCloud</span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"><span class="keyword">import</span> jieba.analyse</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wordcloud_analyze_show</span><span class="params">(data, output_name)</span>:</span></span><br><span class="line">    words = jieba.cut(data, cut_all=<span class="literal">True</span>)</span><br><span class="line">    words = <span class="string">" "</span>.join(words)</span><br><span class="line">    wc = WordCloud(font_path=<span class="string">"simhei.ttf"</span>, collocations=<span class="literal">False</span>, width=<span class="number">1024</span>, height=<span class="number">768</span>, max_words=<span class="number">100</span>)</span><br><span class="line">    result = wc.generate(words)</span><br><span class="line">    plt.imshow(result)</span><br><span class="line">    plt.axis(<span class="string">"off"</span>)</span><br><span class="line">    plt.show()</span><br><span class="line">    wc.to_file(output_name+<span class="string">".png"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    file_name = <span class="string">"机器学习算法_成都_清洗后"</span></span><br><span class="line">    data = pd.read_csv(file_name + <span class="string">".csv"</span>)</span><br><span class="line">    <span class="comment"># 设定输出图形的大小</span></span><br><span class="line">    plt.rcParams[<span class="string">'figure.figsize'</span>] = (<span class="number">15</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    position_detail = data[<span class="string">'岗位职责和要求'</span>]</span><br><span class="line">    position_detail_text = <span class="string">""</span>.join(position_detail)</span><br><span class="line">    position_detail_text = position_detail_text.replace(<span class="string">"职位描述"</span>, <span class="string">""</span>).replace(<span class="string">"任职要求"</span>, <span class="string">""</span>)     .replace(<span class="string">":"</span>, <span class="string">""</span>).replace(<span class="string">"岗位职责"</span>, <span class="string">""</span>).replace(<span class="string">"："</span>, <span class="string">""</span>).replace(<span class="string">" "</span>, <span class="string">""</span>).replace(<span class="string">"、"</span>,    <span class="string">""</span>).replace(<span class="string">"."</span>, <span class="string">""</span>).replace(<span class="string">"·"</span>, <span class="string">""</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        position_detail_text = position_detail_text.replace(str(i), <span class="string">""</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 输出岗位职责和要求的词云图</span></span><br><span class="line">    wordcloud_analyze_show(position_detail_text, <span class="string">"岗位职责和要求"</span>)</span><br><span class="line">    <span class="comment"># 输出岗位职责和要求的词云图</span></span><br><span class="line">    advantages = <span class="string">" "</span>.join(data[<span class="string">"职位诱惑"</span>])</span><br><span class="line">    wordcloud_analyze_show(advantages, <span class="string">"职位诱惑"</span>)</span><br><span class="line">    <span class="comment"># 设定输出图形的大小</span></span><br><span class="line">    plt.rcParams[<span class="string">'figure.figsize'</span>] = (<span class="number">15</span>, <span class="number">8</span>)</span><br><span class="line">    <span class="comment"># 对薪资进行统计分析</span></span><br><span class="line">    sns.set(font=<span class="string">'SimHei'</span>, style=<span class="string">"white"</span>, palette=<span class="string">"pastel"</span>, color_codes=<span class="literal">True</span>)</span><br><span class="line">    sns.distplot(data[<span class="string">"薪资"</span>])</span><br><span class="line">    sns.despine(left=<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># 将“学历”和薪资联合进行关联分析</span></span><br><span class="line">    sns.stripplot(x=<span class="string">"学历"</span>, y=<span class="string">"薪资"</span>, data=data)</span><br><span class="line">    sns.despine(left=<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># 将“区域”和薪资联合进行关联分析</span></span><br><span class="line">    sns.stripplot(x=<span class="string">"区域"</span>, y=<span class="string">"薪资"</span>, data=data)</span><br><span class="line">    sns.despine(left=<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># 将“工作年限”和薪资联合进行关联分析</span></span><br><span class="line">    sns.stripplot(x=<span class="string">"工作年限"</span>, y=<span class="string">"薪资"</span>, data=data)</span><br><span class="line">    sns.despine(left=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">点个赞</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，为Bryce点赞！</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/qr-wechat.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/qr-alipay.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/07/30/spider-lagou/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/07/31/linear-regression/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '5c6399e159fca14d3d7a',
+  clientSecret: '7ca73f69fc9b72ea8bf2164bb1f734824b6ab18f',
+  repo: 'bryce-wei.github.io',
+  owner: 'bryce-wei',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: location.pathname,
+  admin: ['bryce-wei'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
