@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-01T02:34:07.132Z</updated>
+  <updated>2019-08-01T04:37:23.356Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2019/07/31/linear-regression/"/>
     <id>http://yoursite.com/2019/07/31/linear-regression/</id>
     <published>2019-07-31T14:04:18.000Z</published>
-    <updated>2019-08-01T02:34:07.132Z</updated>
+    <updated>2019-08-01T04:37:23.356Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Hypothesis"><a href="#Hypothesis" class="headerlink" title="Hypothesis"></a>Hypothesis</h1><p>$$<br>h_\omega(x)=\omega x+b<br>$$</p><ul><li>\(\omega\)与\(x\)为标量时，则为单变量线性回归  </li><li>\(\omega\)与\(x\)为向量时，则为多变量线性回归  </li></ul><h1 id="Cost-loss，采用平方损失函数"><a href="#Cost-loss，采用平方损失函数" class="headerlink" title="Cost(loss，采用平方损失函数)"></a>Cost(loss，采用平方损失函数)</h1><p>$$<br>L(f)=L(h_\omega(x))=\sum_{i=1}^{n}{(\omega x_i+b - y_i)^2}<br>$$</p><h1 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h1><p>问题即求cost最小时的\(\omega\)的取值  </p><p>采用<strong>Gradient Descent</strong>方法来求解\(minimize(loss)\)  </p><blockquote><p>实际上线性回归的最优化问题可以直接使用最小二乘法获得解析解  </p></blockquote><p>令：<br>\(W = (\omega_1, \omega_2, \omega_3, …, \omega_n, b)^T \)<br>\(X = (x_1, x_2, x_3, …, x_n, 1)^T \)<br>\(Y = (y_1, y_2, y_3, …, y_n)^T \) </p><p>则：<br>$$<br>J(\omega) = minimize(loss) = arg min(WX-Y)^2<br>$$</p><p>为求极小值，对其进行求导：<br>$$<br>\frac{\partial J(\omega)}{\partial \omega_j} = 2(h_\omega(x)-y)x_j<br>$$<br>梯度方向即为导数方向，沿着梯度下降则为：<br>$$<br>\omega_j = \omega_j - \alpha \frac{\partial J(\omega)}{\partial \omega_j}<br>$$<br>更新\(\omega\)的值，即为训练阶段  </p><h1 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h1><p>参数过多时容易过拟合，引用正则化对所有参数\(\omega\)进行惩罚，确保每个\(\omega\)都取较小值  </p><p>L1 (Lasso Regression)：<br>$$<br>minimize(loss) = arg min(WX-Y)^2 + \lambda||\omega||<br>$$</p><p>L2 (Ridge Regression)：<br>$$<br>minimize(loss) = arg min(WX-Y)^2 + \lambda||\omega||^2<br>$$</p><p>L1 &amp; L2 (Elastic Regression)：<br>$$<br>minimize(loss) = arg min(WX-Y)^2 + \frac{\lambda(1-\rho)}{2}||\omega||^2<br>$$</p><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="Hypothesis"><a href="#Hypothesis" class="headerlink" title="Hypothesis"></a>Hypothesis</h1><p>$$<br>h_\omega(x)=\omega x+b<br>$$</p><ul><li>$\omega$与$x$为标量时，则为单变量线性回归  </li><li>$\omega$与$x$为向量时，则为多变量线性回归  </li></ul><h1 id="Cost-loss，采用平方损失函数"><a href="#Cost-loss，采用平方损失函数" class="headerlink" title="Cost(loss，采用平方损失函数)"></a>Cost(loss，采用平方损失函数)</h1><p>$$<br>L(f)=L(h_\omega(x))=\sum_{i=1}^{n}{(\omega x_i+b - y_i)^2}<br>$$</p><h1 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h1><p>问题即求cost最小时的$\omega$的取值  </p><p>采用<strong>Gradient Descent</strong>方法来求解$minimize(loss)$  </p><blockquote><p>实际上线性回归的最优化问题可以直接使用最小二乘法获得解析解  </p></blockquote><p>令：<br>$W = (\omega_1, \omega_2, \omega_3, …, \omega_n, b)^T $<br>$X = (x_1, x_2, x_3, …, x_n, 1)^T $<br>$Y = (y_1, y_2, y_3, …, y_n)^T $ </p><p>则：<br>$$<br>J(\omega) = minimize(loss) = arg min(WX-Y)^2<br>$$</p><p>为求极小值，对其进行求导：<br>$$<br>\frac{\partial J(\omega)}{\partial \omega_j} = 2(h_\omega(x)-y)x_j<br>$$<br>梯度方向即为导数方向，沿着梯度下降则为：<br>$$<br>\omega_j = \omega_j - \alpha \frac{\partial J(\omega)}{\partial \omega_j}<br>$$<br>更新$\omega$的值，即为训练阶段  </p><h1 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h1><p>参数过多时容易过拟合，引用正则化对所有参数$\omega$进行惩罚，确保每个$\omega$都取较小值  </p><p>L1 (Lasso Regression)：<br>$$<br>minimize(loss) = arg min(WX-Y)^2 + \lambda||\omega||<br>$$</p><p>L2 (Ridge Regression)：<br>$$<br>minimize(loss) = arg min(WX-Y)^2 + \lambda||\omega||^2<br>$$</p><p>L1 &amp; L2 (Elastic Regression)：<br>$$<br>minimize(loss) = arg min(WX-Y)^2 + \frac{\lambda(1-\rho)}{2}||\omega||^2<br>$$</p><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1>]]></content>
     
     <summary type="html">
     
