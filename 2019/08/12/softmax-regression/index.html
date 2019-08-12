@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Softmax Regression | Bryce&#39;s ox</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="机器学习,softmax回归,">
+  
+
+  <meta name="description" content="softmax回归是logistic regression的推广。Logistic Regression是求2个后验概率：$P(y=0|x;\theta)$和$P(y=1|x;\theta)$ ,而Softmax Regerssion则是求k个概率，k即为分类的个数，最后取最大的概率   Softmax函数 在直接写softmax regression公式之前，先来介绍一下softmax函数">
+<meta name="keywords" content="机器学习,softmax回归">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Softmax Regression">
+<meta property="og:url" content="http://yoursite.com/2019/08/12/softmax-regression/index.html">
+<meta property="og:site_name" content="Bryce&#39;s ox">
+<meta property="og:description" content="softmax回归是logistic regression的推广。Logistic Regression是求2个后验概率：$P(y=0|x;\theta)$和$P(y=1|x;\theta)$ ,而Softmax Regerssion则是求k个概率，k即为分类的个数，最后取最大的概率   Softmax函数 在直接写softmax regression公式之前，先来介绍一下softmax函数">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-12T11:54:25.277Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Softmax Regression">
+<meta name="twitter:description" content="softmax回归是logistic regression的推广。Logistic Regression是求2个后验概率：$P(y=0|x;\theta)$和$P(y=1|x;\theta)$ ,而Softmax Regerssion则是求k个概率，k即为分类的个数，最后取最大的概率   Softmax函数 在直接写softmax regression公式之前，先来介绍一下softmax函数">
+
+  
+
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-144776259-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+  
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">Box</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">Box</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Softmax函数"><span class="toc-text">Softmax函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hypothesis"><span class="toc-text">Hypothesis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cost"><span class="toc-text">Cost</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Optimization"><span class="toc-text">Optimization</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-softmax-regression" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Softmax Regression</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.08.12</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Bryce Wei</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <blockquote>
+<p>softmax回归是logistic regression的推广。<br>Logistic Regression是求2个后验概率：$P(y=0|x;\theta)$和$P(y=1|x;\theta)$ ,而Softmax Regerssion则是求k个概率，k即为分类的个数，最后取最大的概率 </p>
+</blockquote>
+<h1 id="Softmax函数"><a href="#Softmax函数" class="headerlink" title="Softmax函数"></a>Softmax函数</h1><blockquote>
+<p>在直接写softmax regression公式之前，先来介绍一下softmax函数  、</p>
+</blockquote>
+<p>softmax function，又称归一化指数函数， 是logistic function的一种推广。该函数应用广泛，在多项式逻辑回归、多项线性判别分析、朴素贝叶斯分类、人工神经网络、深度学习等多种<strong>基于概率</strong>的<strong>多分类</strong>问题中都有应用。  </p>
+<p>其表达式为：<br>$$<br>\sigma (z)_j = \frac{e^{z_j}}{\sum_{k=1}^{K}e^{z_k}} 1; j=1,2,3,…,K.<br>$$</p>
+<h1 id="Hypothesis"><a href="#Hypothesis" class="headerlink" title="Hypothesis"></a>Hypothesis</h1><p>$$<br>h_\theta(x) = \left[<br>                \begin{matrix}<br>                    P(y=1|x; \theta) \\<br>                    P(y=2|x; \theta) \\<br>                    \cdots \\<br>                    P(y=k|x; \theta)<br>                \end{matrix}<br>              \right]<br>            = \frac{1}{\sum_{j=1}^{K}e^{\theta_j^Tx}} \left[<br>            \begin{matrix}<br>                e^{\theta_1^Tx} \<br>                e^{\theta_2^Tx} \<br>                \cdots \<br>                e^{\theta_k^Tx} \<br>            \end{matrix}<br>            \right]<br>$$</p>
+<ul>
+<li>保证所有概率之和等于1</li>
+</ul>
+<h1 id="Cost"><a href="#Cost" class="headerlink" title="Cost"></a>Cost</h1><ul>
+<li><p>同logistic，也采用对数损失函数<br>$$<br>\begin{aligned}<br>J_\theta(x) = cost(h_\theta(x), y)  = - \frac{1}{m} \left[ \sum_{i=1}^{m} \sum_{j=1}^{K} I\{y^{(i)}=j\} log{\frac{e^{\theta_j^Tx^{(i)}}}{\sum_{k=1}^{K}e^{\theta_k^Tx^{(i)}}}} \right] + \frac{\lambda}{2}\theta^2<br>\end{aligned}<br>$$</p>
+</li>
+<li><p>其中$I\{y^{(i)}=j\}$指的是：当{}内为真时，I值为1；当{}内为假时，I值为0</p>
+</li>
+<li><p>${\frac{e^{\theta_j^Tx^{(i)}}}{\sum_{k=1}^{K}e^{\theta_k^Tx^{(i)}}}}$项即为$h_\theta(x)$</p>
+</li>
+<li><p>$\frac{\lambda}{2}\theta^2$为附加的正则项，即regularization项</p>
+</li>
+</ul>
+<h1 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h1><p>问题即求cost最小时的$\theta$的取值<br>采用<strong>Gradient Descent</strong>方法来求解$minimize(loss)$</p>
+<p>令：<br>$W = (\omega_1, \omega_2, \omega_3, …, \omega_n, b)^T $<br>$X = (x_1, x_2, x_3, …, x_n, 1)^T $<br>$Y = (y_1, y_2, y_3, …, y_n)^T $ </p>
+<p>梯度下降法，先求梯度，即对$\theta$求导数得：<br>$$<br>\frac{\partial J(\theta)}{\partial \theta} = - \frac{1}{m} \sum_{j=1}^{m} \left[x^{(i)}(I\{y^{(i)} = j\} - P(y^{(i)}=j|x^{(i)}; \theta)) \right] + \lambda \theta_j<br>$$</p>
+<p>其中：<br>$$<br>P(y^{(i)}=j|x^{(i)}; \theta)) = log \frac{e^{\theta_j^Tx^{(i)}}}{\sum_{n=1}^{K}e^{\theta_n^Tx^{(i)}}}<br>$$</p>
+<p>沿着梯度下降更新$\theta$的值为：<br>$$<br>\theta = \theta - \alpha \frac{\partial J(\theta)}{\partial \theta}<br>$$</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">点个赞</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，为Bryce点赞！</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/qr-wechat.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/qr-alipay.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/08/07/logistic-regression/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '5c6399e159fca14d3d7a',
+  clientSecret: '7ca73f69fc9b72ea8bf2164bb1f734824b6ab18f',
+  repo: 'bryce-wei.github.io',
+  owner: 'bryce-wei',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: location.pathname,
+  admin: ['bryce-wei'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
