@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>最近疯狂的三天 | Bryce&#39;s ox</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="经历,不服老,">
+  
+
+  <meta name="description" content="忍不住必须要记录一下，最近技术上遇到了一个巨坑，让我在这个年纪还连续通宵了3天，必须得单独开一篇   目的由于某些原因，需要逆向分析xxx APK，主要涉及到三大方法：    抓包流量分析 静态代码分析 动态调试分析  前面两种涉及到的环境比较容易，最后一个动态调试分析，随着攻防技术的提升以及Android系统本身的升级，已经不那么容易了，这记录的三天就在攻陷最后一种动态调试分析的环境问题 开启动">
+<meta name="keywords" content="经历,不服老">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最近疯狂的三天">
+<meta property="og:url" content="http://yoursite.com/2019/09/02/overnight/index.html">
+<meta property="og:site_name" content="Bryce&#39;s ox">
+<meta property="og:description" content="忍不住必须要记录一下，最近技术上遇到了一个巨坑，让我在这个年纪还连续通宵了3天，必须得单独开一篇   目的由于某些原因，需要逆向分析xxx APK，主要涉及到三大方法：    抓包流量分析 静态代码分析 动态调试分析  前面两种涉及到的环境比较容易，最后一个动态调试分析，随着攻防技术的提升以及Android系统本身的升级，已经不那么容易了，这记录的三天就在攻陷最后一种动态调试分析的环境问题 开启动">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-02T08:56:12.939Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="最近疯狂的三天">
+<meta name="twitter:description" content="忍不住必须要记录一下，最近技术上遇到了一个巨坑，让我在这个年纪还连续通宵了3天，必须得单独开一篇   目的由于某些原因，需要逆向分析xxx APK，主要涉及到三大方法：    抓包流量分析 静态代码分析 动态调试分析  前面两种涉及到的环境比较容易，最后一个动态调试分析，随着攻防技术的提升以及Android系统本身的升级，已经不那么容易了，这记录的三天就在攻陷最后一种动态调试分析的环境问题 开启动">
+
+  
+
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-144776259-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+  
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">Box</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">Box</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目的"><span class="toc-text">目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启动态调试的三种方案"><span class="toc-text">开启动态调试的三种方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件环境"><span class="toc-text">硬件环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#周四"><span class="toc-text">周四</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#周五"><span class="toc-text">周五</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#周六"><span class="toc-text">周六</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最终的解决方案："><span class="toc-text">最终的解决方案：</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-overnight" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">最近疯狂的三天</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.09.02</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Bryce Wei</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/个人纪录片/">个人纪录片</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p><strong>忍不住必须要记录一下，最近技术上遇到了一个巨坑，让我在这个年纪还连续通宵了3天，必须得单独开一篇</strong>  </p>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>由于某些原因，需要逆向分析xxx APK，主要涉及到三大方法：  </p>
+<ul>
+<li>抓包流量分析</li>
+<li>静态代码分析</li>
+<li>动态调试分析</li>
+</ul>
+<p>前面两种涉及到的环境比较容易，最后一个动态调试分析，随着攻防技术的提升以及Android系统本身的升级，已经不那么容易了，这记录的三天就在攻陷最后一种<code>动态调试分析</code>的<code>环境</code>问题</p>
+<h2 id="开启动态调试的三种方案"><a href="#开启动态调试的三种方案" class="headerlink" title="开启动态调试的三种方案"></a>开启动态调试的三种方案</h2><ol>
+<li><p><code>AndroidManifest.xml</code><br>在该文件中的<code>application</code>中添加<code>android:debuggable=&quot;true&quot;</code>，再编译、签名、安装，进行调试。但是这个方法对自己写的app很有效，对别人尤其是签名严格的应用来说，基本不可行了，重新编译签名后的app往往没办法正常运行。  </p>
+</li>
+<li><p><code>ro.debuggable</code><br>具体方法可选内存注入、修改boot.img后重刷系统等.一个是每次都需要重新注入，一个需要重刷系统，可自行选择</p>
+</li>
+<li><p><code>xposed框架下的debuggable模块</code><br>既然已经安装好了强大的xposed框架，那理论上应该很容易的就能够解决这个问题。搜索了一下，目前比较新的是<a href="https://github.com/dirname/AppDebuggable/releases" target="_blank" rel="noopener">App Debuggable</a>.  </p>
+</li>
+</ol>
+<h2 id="硬件环境"><a href="#硬件环境" class="headerlink" title="硬件环境"></a>硬件环境</h2><p>移动端：  </p>
+<ul>
+<li>Redmi Note 7</li>
+<li>Android 9(API 28)</li>
+</ul>
+<p>PC端：  </p>
+<ul>
+<li>Mac OS</li>
+<li>Ubuntu 19</li>
+<li>Windows 10</li>
+</ul>
+<h2 id="周四"><a href="#周四" class="headerlink" title="周四"></a>周四</h2><p><em>持续到周五凌晨3点半，才睡觉</em></p>
+<p>主要准备进行第二种方法的尝试，而在尝试的过程中，出现了刷机问题。</p>
+<ol>
+<li>先尝试刷开发版，看能否直接打开Debuggable模式，于是从官方稳定版，刷到最新的官方开发板，没问题，但是没有解决Debuggable模式问题</li>
+<li>尝试解压boot.img，但是发现很多工具无法在<code>Android 9</code>上正常运行，于是就有思路能否刷回到<code>Android 8</code>版本，开始寻找第三方ROM，尝试的心态去刷机，然而发现要从最新的官方开发版刷回稳定版或者低版本，必须线刷，更尴尬的是，启动到Recovery模式时发现，<code>TWRP recovery</code>已经被重置回<code>官方recovery</code>了，本来分分钟就能刷回来的事情，却耗费了好几个小时…</li>
+<li>一般来说，刷回<code>TWRP recovery</code>只需要准备好手机，<code>TWRP recovery</code>包，然后连上手机，刷就好了。然后这些都没问题，但是在fastboot flash的时候，先能找到设备，几秒后就找不到了，或者先能找到设备，本来几秒钟就能刷完的，结果刷了十几分钟还没结束，各种没出现过的问题都来了。  </li>
+<li>时间就耗在这里，Google了一圈，也有遇到类似的，说是驱动问题，然而我adb完美，不可能是驱动，但是死马当活马医，都试了一遍，问题点还是在那里。开始也怀疑是不是数据线或者接口问题，但是，adb模式却没有问题，手机开机后的连接也没问题，并且当时手头只有一根数据线一台台式机，没法验证这个猜想，就先搁浅了。</li>
+<li>后来事实证明，问题真的就在这里，手机关机进入fastboot模式后，电脑能短暂识别到fastboot模式的手机大约3-5秒，后面就绝对断。第二天到公司用Mac和Win10笔记本都没问题。</li>
+</ol>
+<p>当时没法验证，就各种其他方法折腾，最后在凌晨3点的时候只能用排除法勉强定位到问题很大概率是在电脑USB口或者数据线问题，但是因为当时手头只有<code>windows 10</code>台式机，无法进行对比定位，所以得第二天去公司用不同的机子进行验证。</p>
+<h2 id="周五"><a href="#周五" class="headerlink" title="周五"></a>周五</h2><p><em>持续到周六凌晨5点</em><br>周五白天挤出很多时间，实验了方法3，刷的<code>Redmi Note 7官方稳定ROM、官方开发ROM、官改ROM</code>好几个ROM下的各种xposed框架，终于有找到适合<code>红米Note 7</code>的，并且其他Xposed插件也能在该<code>Xposed框架</code>下运行，但是就各种<code>Debuggable插件</code>不行，能装的5个Debuggable插件全试过了，各种刷系统、各种刷框架、各种装插件、各种重启，就是死活不行…  </p>
+<p>于是，今天晚上决定换个方案，主攻方案2，<code>修改boot.img</code>  </p>
+<p>尝试了很多网上高分方案未果（这里就不一一列出来失败方案了，免得误导后来者）后，终于柳暗花明的看到了一种很新并且作者仍然在维护的方法：<code>SuperR&#39;s Kitchen</code><br>找了很多资料后，发现<a href="https://www.weibo.com/ttarticle/p/show?id=2309404154815159607538" target="_blank" rel="noopener">这篇微博</a>是讲的很详细的怎么去用这个玩意儿的博客了，赞一个<br>然而，在<code>解包/打包boot.img</code>那一步出了问题，最新的SuperR中这一项是标红的，没办法选择，不知道是因为我用的免费版的，还是因为不支持Android 9的原因。然而，一看正式版15刀，在不确定原因的情况去买，有点心疼，更何况最近汇率飚升…该方案也是暂告失败，看看时间，凌晨5点，身体刚不住了，洗洗睡了…   </p>
+<h2 id="周六"><a href="#周六" class="headerlink" title="周六"></a>周六</h2><p><em>持续到周日凌晨4点半，好在，终于搞定了这个问题</em><br>具体过程就不详细描述了，因为那时候人已经接近恍惚了，搞完就直接睡了，现在去回忆大脑本身就有点抗拒还有点记不得了。过程总是艰难的，好在结果还是令人愉悦的。下面给出最终的解决方案。   </p>
+<h3 id="最终的解决方案："><a href="#最终的解决方案：" class="headerlink" title="最终的解决方案："></a>最终的解决方案：</h3><ul>
+<li>硬件不变，仍然是<code>Redmi Note 7</code>  </li>
+<li>系统底层仍然是<code>Android 9</code>，刷了<code>crDroid v5.7</code>，<a href="https://forum.xda-developers.com/redmi-note-7/development/rom-crdroid-v5-3-t3925883" target="_blank" rel="noopener">点击详情</a>  </li>
+<li>Recovery刷的<a href="https://forum.xda-developers.com/redmi-note-7/development/recovery-twrp-3-3-0-t3923835" target="_blank" rel="noopener">TWRP-3.3.0</a></li>
+<li><a href="https://github.com/topjohnwu/magisk_files/tree/master/canary_builds" target="_blank" rel="noopener">Magisk</a>框架，及其Root</li>
+<li><a href="https://romprovider.com/2019/07/install-xposed-framework-redmi-note-7/" target="_blank" rel="noopener">Xposed</a>框架<ul>
+<li><a href="https://github.com/RikkaApps/Riru/releases" target="_blank" rel="noopener">Magisk Riru</a></li>
+<li><a href="https://github.com/ElderDrivers/EdXposed/releases" target="_blank" rel="noopener">ED Xposed</a></li>
+<li><a href="https://github.com/solohsu/XposedInstaller/releases" target="_blank" rel="noopener">EdXposed Installer</a>  </li>
+</ul>
+</li>
+<li><a href="https://github.com/dirname/AppDebuggable/releases" target="_blank" rel="noopener">App Debuggable</a>  </li>
+</ul>
+<hr>
+<p><em>The End</em></p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">点个赞</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，为Bryce点赞！</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/qr-wechat.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/qr-alipay.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/08/14/english-learning/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '5c6399e159fca14d3d7a',
+  clientSecret: '7ca73f69fc9b72ea8bf2164bb1f734824b6ab18f',
+  repo: 'bryce-wei.github.io',
+  owner: 'bryce-wei',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: location.pathname,
+  admin: ['bryce-wei'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
