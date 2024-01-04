@@ -1,7 +1,7 @@
-/* Section Tags */
+/* Section tags */
 .section-tags {
   @media only screen and (max-width: $mobile) {
-    .row .col:last-child > .tag-image {
+    .row .col:last-child>.tag-image {
       margin-bottom: 0;
     }
   }

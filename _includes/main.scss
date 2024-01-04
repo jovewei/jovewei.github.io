@@ -29,11 +29,11 @@
     3.7-Article
     3.8-Contact
     3.9-Sections
-    3.10-Section Tags
+    3.10-Section tags
 :: 4-Layouts
     4.1-Home Page
     4.2-Post Page
-    4.3-Tags Page
+    4.3-tags Page
 <<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 
 
@@ -88,7 +88,7 @@
 @import '3-modules/contact';
 /* >>>>>>>>>>>>>> :: 3.9-Sections <<<<<<<<<<<<<<< */
 @import '3-modules/sections';
-/* >>>>>>>>>>>>>> :: 3.10-Section Tags <<<<<<<<<<<<<<< */
+/* >>>>>>>>>>>>>> :: 3.10-Section tags <<<<<<<<<<<<<<< */
 @import '3-modules/section-tags';
 
 
@@ -97,5 +97,5 @@
 ======================= */
 /* >>>>>>>>>>>>>> :: 4.1-Post <<<<<<<<<<<<<<< */
 @import '4-layouts/post';
-/* >>>>>>>>>>>>>> :: 4.2-Tags Page <<<<<<<<<<<<<<< */
+/* >>>>>>>>>>>>>> :: 4.2-tags Page <<<<<<<<<<<<<<< */
 @import '4-layouts/tags-page';
