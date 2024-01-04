@@ -15,9 +15,9 @@
     flex-grow: 1;
   }
 
-   @media only screen and (max-width: $mobile) {
-     padding: 60px 0;
-   }
+  @media only screen and (max-width: $mobile) {
+    padding: 60px 0;
+  }
 }
 
 /* Footer Author */
@@ -73,7 +73,7 @@
     align-items: center;
     flex-wrap: wrap;
 
-    .social__item:first-child > .social__link {
+    .social__item:first-child>.social__link {
       padding-left: 0;
     }
   }
@@ -81,7 +81,7 @@
   .social__item {
     margin-bottom: 0;
     margin-right: 16px;
-  
+
     &:last-child {
       margin-right: 0;
     }
@@ -114,7 +114,7 @@
       height: 100%;
       border-radius: 8px;
       overflow: hidden;
-  
+
       &.lightense-open {
         border-radius: 0;
       }

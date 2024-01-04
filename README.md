@@ -1,67 +1,19 @@
-# Menca personal blogging theme for Jekyll
+# WAIX - 个人博客
 
-Menca is a super fast and clean blogging theme for Jekyll. One of the main features of this theme is video post support. You can easily add your favorite video from services like Youtube or Vimeo. This theme is fully compatible with Github Pages and has a light and dark mode for easy reading. If you want to start a creative personal blog and you create video content this theme is perfect for you.
+主要记录一些个人在信息安全领域的一些经验和经历
 
-* * *
+博主从硕士研究生转型开始进入信息安全领域，至今8年有余。其中由于工作关系，经历了**传统网络安全、人工智能安全、物联网安全、安全体系建设、区块链安全**等几乎覆盖了主流和新兴领域的安全，且自认为那时那刻在那个岗位上都能快速的进入状态，取得一定的成绩。
 
-### Demo
+这些年在工作和个人兴趣上，对安全也多多少少有些经验和感悟，有些以文字的形式记录下来了，有些以材料的形式存档了。这次趁着博客迁移的契机，把这些年的经验以文字的形式整理总结下来。对自己是个总结，也希望能分享给有需要的人。
 
-Check the theme in action [Live Demo](https://menca.netlify.app/) |
-[Artem Sheludko](https://jekyllthemes.io/developers/artem-sheludko)
+文章初步分类：  
 
-* * *
+- 传统网络安全
+- 安全体系建设
+- 人工智能与安全
+- 物联网与安全
+- 区块链与安全
 
-### Theme features
+文章的时间以旧博客或较完整的资料的时间为准，而不以新博客发布时间，主要方便自己在整理过往的时候有个相对准确的时间线。
 
-- Works with GitHub Pages (host it for free)
-- Dark and light mode user can select themself
-- No jQuery, only vanilla JS
-- 100% responsive Design
-- Clean and Modern Code
-- Optimized for mobile devices
-- Super fast performance ⚡⚡⚡
-- Social sharing buttons
-- Scroll to top button
-- Syntax highlighting (supports the Jekyll syntax highlighter)
-- Compatible with modern browsers
-- Medium style image zoom
-- Image Lazy loading
-- Image gallery
-- Tags Page
-- Custom logo support
-- Supports video posts
-- Supports contact form (Formspree)
-- Supports MailChimp newsletter
-- Supports Disqus comments
-- Supports Google Analytics
-- Ionicons icons
-- Free Google Fonts
-- Free Updates & Support
-
-* * *
-
-### Installation
-
-#### Installing Ruby & Jekyll
-
-If this is your first time using Jekyll, please follow the [Jekyll docs](https://jekyllrb.com/docs/installation/) and make sure your local environment (including Ruby) is setup correctly.
-
-* * *
-
-### Deployment
-
-To run the theme locally, navigate to the theme directory and run `bundle install` to install the dependencies, then run `jekyll serve` or `bundle exec jekyll serve` to start the Jekyll server.
-
-I would recommend checking the [Deployment Methods](https://jekyllrb.com/docs/deployment-methods/) page on Jekyll website.
-
-* * *
-
-### Documentation
-
-Before using the Menca theme, please read the attached documentation.
-
-* * *
-
-### Support
-
-<p>If you have any questions, please feel free to contact me by mail <a href="mailto:hi.artemsheludko@gmail.com">Contact</a><p>
+最后，内容大多来自于个人经验和实操，如有错误，烦请指正。

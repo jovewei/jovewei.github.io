@@ -1,4 +1,6 @@
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
@@ -74,6 +76,7 @@ blockquote {
   }
 
   cite {
+    font-family: cursive;
     display: inline-block;
     margin-top: 8px;
     font-size: 14px;
@@ -118,7 +121,7 @@ img,
     font-weight: normal;
     text-align: center;
     color: var(--heading-font-color);
-  
+
     a {
       font-weight: 500;
       border-bottom: 1px solid var(--border-color);
@@ -129,7 +132,7 @@ img,
         border-color: var(--link-color-hover);
       }
     }
-  
+
     @media only screen and (max-width: $mobile) {
       margin-top: 12px;
     }
@@ -183,6 +186,7 @@ table th {
 table tr {
   background-color: var(--tr-color);
   transition: all .3s ease;
+
   &:nth-child(even) {
     background-color: transparent;
   }

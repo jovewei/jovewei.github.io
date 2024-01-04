@@ -33,6 +33,10 @@
 
   <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
 
+  {% if page.mathjax %}
+  {% include mathjax.html %}
+  {% endif %}
+
   <script>
     {% if site.color_scheme == "auto" %}
     if (localStorage.getItem("theme") === "dark") {

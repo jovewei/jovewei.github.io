@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   'use strict';
 
   var html = document.querySelector('html'),
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function menuOpen() {
     menuList.classList.add("is-open");
   }
-  
+
   function menuClose() {
     menuList.classList.remove("is-open");
   }
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
     search.classList.remove("is-visible");
   }
 
-  searchBox.addEventListener("keydown", function(event) {
+  searchBox.addEventListener("keydown", function (event) {
     if (event.target == this || event.keyCode == 27) {
       search.classList.remove('is-visible');
     }
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Zoom Image
   ======================= */
   const lightense = document.querySelector(".page__content img, .post__content img, .gallery__image img"),
-  imageLink = document.querySelectorAll(".page__content a img, .post__content a img, .gallery__image a img");
+    imageLink = document.querySelectorAll(".page__content a img, .post__content a img, .gallery__image a img");
 
   if (imageLink) {
     for (var i = 0; i < imageLink.length; i++) imageLink[i].parentNode.classList.add("image-link");
@@ -118,8 +118,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
   if (lightense) {
     Lightense(".page__content img:not(.no-lightense), .post__content img:not(.no-lightense), .gallery__image img:not(.no-lightense)", {
-    padding: 60,
-    offset: 30
+      padding: 60,
+      offset: 30
     });
   }
 
@@ -131,10 +131,12 @@ document.addEventListener("DOMContentLoaded", function() {
   document.querySelectorAll(".tag__link, .top__link").forEach(anchor => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
+      console.log(e);
 
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
-        behavior: "smooth"
-      });
+      location.href = this.getAttribute("href");
+      // document.querySelector(this.getAttribute("href")).scrollIntoView({
+      //   behavior: "smooth"
+      // });
     });
   });
 

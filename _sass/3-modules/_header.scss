@@ -6,7 +6,7 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 44px $base-spacing-unit;
-  
+
     @media only screen and (max-width: $desktop) {
       padding: 40px $base-spacing-unit;
     }
@@ -20,10 +20,10 @@
 /* Logo */
 .logo__link {
   padding: 4px 0;
-  font-family: $heading-font-family;
-  font-size: 28px;
+  font-family: $logo-font-family;
+  font-size: 36px;
   letter-spacing: -1px;
-  line-height: 1;
+  line-height: 0.5;
   font-weight: 700;
   transition: color .25s ease;
 
