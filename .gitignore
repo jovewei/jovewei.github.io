@@ -1,0 +1,3 @@
+# ignore everything in this directory
+Gemfile.lock
+.DS_Store

@@ -6,7 +6,7 @@
       "tags"     : "AI与安全 and 机器学习",
       "url"      : "/Softmax",
       "date"     : "Aug 8, 2019",
-      "article"  : "<div class='article col col-4 col-d-6 col-t-12 animate'> <div class='article__inner'> <div class='article__head'> <time class='article__date' datetime='2019-08-08T21:20:09+08:00'>08 Aug 2019</time><a class='article__image' href='/Softmax'> <img src='/images/gallery/Cubist-Bird.jpg' alt='Softmax Regression'> </a></div><div class='article__content'> <h2 class='article__title'> <a href='/Softmax'>Softmax Regression</a> </h2><p class='article__excerpt'>softmax回归是logistic regression的推广，本人从假设、损失函数、优化、正则到代码实现，简述softmax回归的核心</p></div></div></div>"
+      "article"  : "<div class='article col col-4 col-d-6 col-t-12 animate'> <div class='article__inner'> <div class='article__head'> <time class='article__date' datetime='2019-08-08T21:20:09+08:00'>08 Aug 2019</time><a class='article__image' href='/Softmax'> <img src='/images/gallery/Ramon-Casas-and-Pere-Romeu-on-a-Tandem.jpg' alt='Softmax Regression'> </a></div><div class='article__content'> <h2 class='article__title'> <a href='/Softmax'>Softmax Regression</a> </h2><p class='article__excerpt'>softmax回归是logistic regression的推广，本人从假设、损失函数、优化、正则到代码实现，简述softmax回归的核心</p></div></div></div>"
     } ,
   
     {
