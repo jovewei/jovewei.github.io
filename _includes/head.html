@@ -33,9 +33,11 @@
 
   <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
 
+  <!-- <style>
   {% if page.mathjax %}
-  {% include mathjax.html %}
+    {% include mathjax.html %}
   {% endif %}
+  </style> -->
 
   <script>
     {% if site.color_scheme == "auto" %}
@@ -55,7 +57,27 @@
       document.documentElement.classList.add('dark-mode');
     }
     {% endif %}
+
+    
   </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 
   <style>
   {% capture include_to_scssify %}
