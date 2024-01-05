@@ -76,8 +76,8 @@ contact:
 disqus-identifier: demo-menca # Add your shortname for Disqus Comment. For example demo-menca
 
 #-------------------------------
-# Google Analytics
-google-analytics: # Add your GA Tracking Id
+# Google Analytics  G-NS3LE8YMXJ
+google-analytics: G-NS3LE8YMXJ # Add your GA Tracking Id
 
 #-------------------------------
 # Build Settings
