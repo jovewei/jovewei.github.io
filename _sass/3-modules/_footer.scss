@@ -159,7 +159,7 @@
 .top {
   min-width: 36px;
   height: 36px;
-  font-size: 20px;
+  font-size: 24px;
   line-height: 36px;
   text-align: center;
   border-radius: 8px;
@@ -167,4 +167,8 @@
   background-color: var(--background-alt-color);
   cursor: pointer;
   transition: all .25s ease;
+  position: fixed;
+  bottom: 30%;
+  right: 10px;
+  box-shadow: 4px 3px 1px 0px #8b949e;
 }
