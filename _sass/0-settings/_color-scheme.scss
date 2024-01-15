@@ -12,10 +12,10 @@
 
   --background-color: var(--white);
   --background-alt-color: var(--light-blue);
-  
+
   --text-color: var(--dark-blue);
   --text-alt-color: var(--blue-gray);
-  
+
   --heading-font-color: var(--dark-blue);
 
   --link-color: var(--dark-blue);
@@ -42,11 +42,12 @@
   --dark: #111016;
 
   --background-color: var(--dark);
-  --background-alt-color: #1a1a1f;
-  
+  --background-alt-color: #292930;
+  // --background-alt-color: #5a5a6d;
+
   --text-color: var(--gray);
   --text-alt-color: var(--gray);
-  
+
   --heading-font-color: var(--light-gray);
 
   --link-color: var(--light-gray);
@@ -59,7 +60,8 @@
   --border-color: #252629;
   --border-color-alt: #080b12;
 
-  --th-color: #18181d;;
+  --th-color: #18181d;
+  ;
   --tr-color: #080b12;
 
   --syntax-highlighting-background: #080b12;
