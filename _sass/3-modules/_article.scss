@@ -35,6 +35,22 @@
   pointer-events: none;
 }
 
+.article__archive__date {
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  right: 16px;
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 500;
+  border-radius: 4px;
+  color: var(--heading-font-color);
+  background: var(--background-color);
+  pointer-events: none;
+}
+
 .article__image {
   position: relative;
   transform: translate(0);

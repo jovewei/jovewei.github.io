@@ -18,13 +18,28 @@ permalink: /tags/
 
           <h1 class="tag__title">Tags</h1>
 
-          <ul class="tag__list list-reset">
+          <!-- <ul class="tag__list list-reset">
             {% for item in (0..site.tags.size) %}
             {% unless forloop.last %}
             {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
             <li class="tag__item"><a href="#{{ this_word | cgi_escape }}" class="tag__link">{{ this_word }}</a></li>
             {% endunless %}
             {% endfor %}
+          </ul> -->
+
+          <ul class="tag__list list-reset">
+            {% capture tags %}
+            {% for tag in site.tags %}
+            <li class="tag__item">
+            <a data-sort="{{ site.posts.size | minus: tag[1].size | prepend: '0000' | slice: -4, 4 }}"
+              data-encode="{{ tag[0] | strip | url_encode }}" class="tag__link" title="{{ tag[0] }}"
+              rel="{{ tag[1].size }}" href="#{{ tag[0] }}">
+              {{ tag[0] }}
+              <sup>{{tag[1].size}}</sup>
+            </a></li>__SEPERATOR__
+            {% endfor %}
+            {% endcapture %}
+            {{ tags | split:'__SEPERATOR__' | sort }}
           </ul>
 
         </div>
@@ -46,11 +61,11 @@ permalink: /tags/
             <div class="tag__info-box">
               <div class="tag__counter">
                 <span>{{ site.tags[this_word].size }}</span>
-                <small>{% if site.tags[page.tag].size < 2 %}Post{% else %}Posts{% endif %}</small>
+                <small>{% if site.tags[this_word].size < 2 %}Post{% else %}Posts{% endif %}</small>
               </div>
               <h2 class="tag__name" id="{{ this_word | cgi_escape }}">{{ this_word }}</h2>
             </div>
-            <a class="top__link" href="#top">Return to top</a>
+            <!-- <a class="top__link" href="#top">Return to top</a> -->
           </div>
         </div>
       </div>
