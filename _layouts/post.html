@@ -64,10 +64,29 @@ layout: default
 <div class="container animate">
 
   <article class="post">
+    <!-- 
 
     <div class="post__content">
       {{ content }}
-    </div>
+    </div> -->
+
+    {% if site.toc %}
+      <div class="post-container">  
+        <div class="contents">
+          <article class="markdown-body">
+            {{ page.content }}
+          </article>
+        </div>   
+        <div class="table-of-contents">
+          <h2>Contents</h2>
+          {% include toc.html html=content %}
+        </div>
+      </div>
+    {% else %}
+      <article class="markdown-body">
+        {{ page.content }}
+      </article>
+    {% endif %}
 
     <div class="post__share">
       <ul class="share__list list-reset">
@@ -110,3 +129,4 @@ layout: default
     </div>
   </div>
 {% endif %}
+

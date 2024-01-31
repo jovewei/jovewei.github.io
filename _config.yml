@@ -83,6 +83,8 @@ google-analytics: G-NS3LE8YMXJ # Add your GA Tracking Id
 # Build Settings
 markdown: kramdown
 permalink: /:title
+# permalink: /:categories/:title/
+
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
@@ -103,3 +105,5 @@ include:
 sass:
   sass_dir: _sass
   style: compressed
+
+toc: true
