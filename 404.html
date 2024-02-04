@@ -1,15 +1,16 @@
 ---
-layout: page
+layout: default
+title: 404
+hide-in-nav: true
+description: "你来到了没有知识的荒原 :("
+header-img: "images/public/404-bg.jpg"
 permalink: /404.html
 ---
 
-<div class="container">
-  <div class="row">
-    <div class="col col-12">
-      <div class="error">
-        <h2 class="error__title">404</h2>
-        <p class="error__text">The requested page could not be found.</p>
-      </div>
-    </div>
-  </div>
-</div>
+
+<!-- Page Header -->
+{% include intro-header.html type="page" short='true' %}
+
+<script>
+	document.body.classList.add('page-fullscreen');
+</script>

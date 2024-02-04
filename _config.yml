@@ -1,109 +1,86 @@
----
-#-------------------------------
-# Site Settings
-title: WAIX
-logo: #"/images/public/logo.png" # You can add own logo. For example '/images/logo.png'.
-description: Menca personal blogging theme for Jekyll
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-color_scheme: auto # You can choose three modes auto, light, and dark. By default, the auto mode is set, which means the user can choose the light or dark mode themself.
+# Site settings
+title: Bryce Blog
+SEOTitle: Bryce Blog
+header-img: images/public/contact.jpg
+email: huaqiang.wei@gmail.com
+description: "这里是 @bryce 的个人博客 | 不是每件事都注定会成功，但每件事都值得一试"
+keyword: "Bryce, bryce wai, @brycewai, 博客, 个人网站, 互联网, 安全, 网络安全, 人工智能安全, 物联网安全, 区块链, 区块链安全, web3"
+url: "" # your host, for absolute URL
+baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
-#-------------------------------
-# Author Settings
-author:
-  author__name: Bryce
-  author__bio: 不是每件事都注定会成功<br>但每件事都值得一试
-  author__avatar: "/images/public/01-1.jpg"
+# Publish posts or collection documents with a future date.
+future: true
 
-social:
-  - { icon: "ion-logo-twitter", link: "https://twitter.com/brycewai" }
-  - { icon: "ion-logo-github", link: "https://github.com/brycewai" }
-  - { icon: "ion-logo-youtube", link: "https://youtube.com" }
+# SNS settings
+RSS: false
+# weibo_username:
+# zhihu_username:
+github_username: brycewai
+twitter_username: brycewai
+#facebook_username:  brycewai
+#linkedin_username:  firstname-lastname-idxxxx
 
-# Example of adding a new link to the footer - {icon: "ion-logo-dribbble", link: "https://dribbble.com"}
-# Other icons can be found at https://ionicons.com/v4/
+# Build settings
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+highlighter: rouge
+permalink: pretty
+paginate: 10
+exclude: ["less", "node_modules", "Gruntfile.js", "package.json", "README.md"]
+anchorjs: true # if you want to customize anchor. check out line:181 of `post.html`
+# If you have timezone issue (e.g. #68) in China, uncomment to use this:
+#timezone: CN
 
-#-------------------------------
-# Hero Settings
-hero:
-  hero__title: Bryce
-  hero__description: Victory Loves Preparation
-  hero__image: "/images/public/01.png"
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+# make sure you have this gem installed
+# `$ gem install jekyll-paginate`
+plugins: [jekyll-paginate]
 
-#-------------------------------
-# Newsletter
-mailchimp: disable # To enable the mailchimp form, use the value 'enable'. To disable the form, leave the field blank.
-mailchimp__identifier: frnla.us6.list-manage.com/subscribe/post?u=6314d69a3f315af7ce3fb00a0&amp;id=3038727cc3 # Add your MailChimp form identifier. For example - frnla.us6.list-manage.com/subscribe/post?u=6314d69a3f315af7ce3fb00a0&amp;id=3038727cc3
-mailchimp__input__text: Subscribe here
-mailchimp__button__text: Get a new tip
-
-#-------------------------------
-# Gallery Footer Section
-gallery:
-  gallery__title: 本期画廊（不定期更新）
-  gallery__columns: 3
-  gallery__images:
-    - alt: "Lady-in-White-on-the-Beach-at-Trouville"
-      url: "/images/gallery/Lady-in-White-on-the-Beach-at-Trouville.jpg"
-    - alt: "Boats-at-Zaandam"
-      url: "/images/gallery/Boats-at-Zaandam.jpg"
-    - alt: "Ritratto-della-marchesa-Casati-con-piume-di-pavone"
-      url: "/images/gallery/Ritratto-della-marchesa-Casati-con-piume-di-pavone.jpg"
-    - alt: "Hercules-and-Alcestis"
-      url: "/images/gallery/Hercules-and-Alcestis.jpg"
-    - alt: "Scene-from-the-Romance-of-Amadis-de-Gaule"
-      url: "/images/gallery/Scene-from-the-Romance-of-Amadis-de-Gaule.jpg"
-    - alt: "The-Death-of-Sardanapalus"
-      url: "/images/gallery/The-Death-of-Sardanapalus.jpg"
-    # - alt: "Fashion"
-    #   url: "/images/106.jpg"
-    # - alt: "Notes"
-    #   url: "/images/107.jpg"
-    # - alt: "Rest"
-    #   url: "/images/108.jpg"
-
-#-------------------------------
-# Contact Settings
-contact:
-  email: huaqiang.wei@gmail.com # Add your email for contant form
-  description: 您可以直接在下面留言，所有的信息都将保密 # Add a description of your form
-
-# NOTE
-# Menso theme comes with a contact form built-in. You can use this form with Formspree (https://formspree.io/) service and get up to 50 submissions for free. Also, you can easily switch to another service if you want.
-
-#-------------------------------
-# Comment Section (Disqus)
-disqus-identifier: brycewai-github-io # Add your shortname for Disqus Comment. For example demo-menca
-
-#-------------------------------
-# Google Analytics  G-NS3LE8YMXJ
-google-analytics: G-NS3LE8YMXJ # Add your GA Tracking Id
-
-#-------------------------------
-# Build Settings
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
 markdown: kramdown
-permalink: /:title
-# permalink: /:categories/:title/
+kramdown:
+  input: GFM # use Github Flavored Markdown !important
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
 
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
+# Disqus settings
+disqus_username: brycewai-github-io
 
-paginate: 9
-paginate_path: "/page/:num"
+# Netease settings
+netease_comment: false
 
-# Pages Path
-defaults:
-  - scope:
-      path: "_pages"
-    values:
-      permalink: /:basename:output_ext
+# Analytics settings
+# Baidu Analytics
+# ba_track_id: [your track id]
 
-include:
-  - _pages
+# Google Analytics
+ga_track_id: G-NS3LE8YMXJ # Format: UA-xxxxxx-xx
+# ga_domain: brycewai.github.io
 
-sass:
-  sass_dir: _sass
-  style: compressed
+# Sidebar settings
+sidebar: true # whether or not using Sidebar.
+sidebar-about-description: "不是每件事都注定会成功<br> 但每件事都值得一试"
+sidebar-avatar: /images/public/01.png # use absolute URL, seeing it's used in both `/` and `/about/`
 
-toc: true
+# Featured Tags
+featured-tags: true # whether or not using Feature-Tags
+featured-condition-size: 1 # A tag will be featured if the size of it is more than this condition value
+
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: true
+
+# MathJax rendering for layout:page (e.g. post preview)
+page-mathjax: true
+# Friends
+# friends:
+#   [
+#     { title: "乱序（Midare）", href: "http://mida.re/" },
+#   ]

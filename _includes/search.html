@@ -1,25 +1,18 @@
-<!-- begin search -->
-<div class="search">
-  <div class="container">
+<!-- Search -->
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
     <div class="row">
-      <div class="col col-12">
-        <div class="search__box">
-          <div class="search__group">
-            <div class="search__close">
-              <i class="ion ion-md-close"></i>
-            </div>
-            <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
-            <input type="text" id="js-search-input" class="search__text" autocomplete="off"
-              placeholder="Type to search...">
-          </div>
-        </div>
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
       </div>
     </div>
   </div>
-
-  <div class="container">
-    <div class="row search-results-list" id="js-results-container"></div>
-  </div>
-
 </div>
-<!-- end search -->
