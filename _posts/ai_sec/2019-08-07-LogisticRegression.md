@@ -5,7 +5,7 @@ title:  逻辑回归 Logistic Regression
 subtitle: 从假设、损失函数、优化、正则到代码实现，简述逻辑回归的核心
 date:   2019-08-07 20:15:25 +0800
 author: "Bryce"
-header-img:  'images/gallery/Cubist-Bird.jpg'
+header-img:  'images/gallery/The-Death-of-Sardanapalus.jpg'
 tags:   [AI与安全, 机器学习]
 mathjax: true
 ---
