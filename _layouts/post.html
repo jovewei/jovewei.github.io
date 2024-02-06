@@ -50,12 +50,14 @@ layout: default
                 </ul>
                 <hr style="visibility: hidden;">
 
-                {% if site.disqus_username %}
-                <!-- disqus 评论框 start -->
-                <div class="comment">
-                    <div id="disqus_thread" class="disqus-thread"></div>
+                {% if site.disqus_shortname %}
+                <!-- <div class="container"> -->
+                <div class="row">
+                    <div class="col col-12">
+                        {% include disqus-comments.html %}
+                    </div>
                 </div>
-                <!-- disqus 评论框 end -->
+                <!-- </div> -->
                 {% endif %}
 
                 {% if site.netease_comment %}
@@ -118,33 +120,6 @@ layout: default
 </script>
 <!-- 网易云跟帖JS代码 end -->
 {% endif %}
-
-
-{% if site.disqus_username %}
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
-<script>
-    var disqus_loaded = false;
-    var disqus_shortname = '{{ site.disqus-identifier }}';
-    var disqus_container = document.getElementById("disqus_thread");
-    function disqus() {
-        if (!disqus_loaded) {
-            disqus_loaded = true;
-            var e = document.createElement("script");
-            e.type = "text/javascript";
-            e.async = true;
-            e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
-            (document.getElementsByTagName("head")[0] ||
-                document.getElementsByTagName("body")[0])
-                .appendChild(e);
-            // Hide the button after opening
-            document.getElementById("show-comments-button").style.display = "none";
-            // Show disqus comments
-            disqus_container.classList.add("is-open");
-        }
-    }
-</script>
-{% endif %}
-<!-- disqus 公共JS代码 end -->
 
 {% if site.anchorjs %}
 <!-- async load function -->

@@ -51,7 +51,7 @@ kramdown:
       start_line: 1
 
 # Disqus settings
-disqus_username: brycewai-github-io
+disqus_shortname: brycewai-github-io
 
 # Netease settings
 netease_comment: false

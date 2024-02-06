@@ -1,4 +1,4 @@
-Bryce Wai
+**Bryce Wai**
 
 - HUSTer
 - 2 年传统安全经验
