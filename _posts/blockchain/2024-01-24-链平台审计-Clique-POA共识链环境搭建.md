@@ -2,7 +2,7 @@
 
 layout: post
 title:  链平台审计-Clique POA共识链环境搭建
-description: 最近在审计某个POA共识的链，记录一下Clique POA 链平台环境搭建的避坑经验
+subtitle: 最近在审计某个POA共识的链，记录一下Clique POA 链平台环境搭建的避坑经验
 date:   2024-01-24 22:39:00 +0800
 author: "Bryce"
 header-img:  'images/gallery/Remarkable-Views-of-Bridges-in-Various-Provinces.jpg'
