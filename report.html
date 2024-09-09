@@ -1,0 +1,27 @@
+---
+layout: page
+title: "Report"
+description: "「浮生若梦，为欢几何」"
+header-img: "images/public/report.jpg"
+header-mask: 0.3
+---
+
+<!-- 去掉中英文切换 multilingual-sel.html -->
+
+<!-- Chinese Version -->
+<div class="zh post-container">
+    {% capture about_zh %}{% include report/readme.md %}{% endcapture %}
+    {{ about_zh | markdownify }}
+</div>
+
+<!-- English Version -->
+
+{% if site.disqus_shortname %}
+<!-- <div class="container"> -->
+<div class="row">
+    <div class="col col-12">
+        {% include disqus-comments.html %}
+    </div>
+</div>
+<!-- </div> -->
+{% endif %}
