@@ -1,30 +1,29 @@
-
-🔎_鼠标右键，在新标签页打开图片，然后点击放大可查看高清图_
+### 🔎_点击图片放大可查看高清原图_
 
 ### Cryptology 总图（持续更新中）
 
-![crypto](/images/diagram/crypto.png)
+[![crypto](/images/diagram/crypto-t.png)](/images/diagram/crypto.png)
 
 ### Uniswap v2
 
-![uniswapv2](/images/diagram/uniswapv2.png)
+[![uniswapv2](/images/diagram/uniswapv2-t.png)](/images/diagram/uniswapv2.png)
 
 ### Staking
 
-![Staking](/images/diagram/staking.png)
+[![Staking](/images/diagram/staking-t.png)](/images/diagram/staking.png)
 
 ### Loaning
 
-![loaning](/images/diagram/loaning.png)
+[![loaning](/images/diagram/loaning-t.png)](/images/diagram/loaning.png)
 
 ### zkRollup - PolygonHermez
 
-![PolygonHermez](/images/diagram/PolygonHermez.png)
+[![PolygonHermez](/images/diagram/PolygonHermez-t.png)](/images/diagram/PolygonHermez.png)
 
 ### zkRollup - Scroll
 
-![Scroll](/images/diagram/Scroll.png)
+[![Scroll](/images/diagram/Scroll-t.png)](/images/diagram/Scroll.png)
 
 ### Tornado.Cash
 
-![TornadoCash](/images/diagram/TornadoCash.png)
+[![TornadoCash](/images/diagram/TornadoCash-t.png)](/images/diagram/TornadoCash.png)
