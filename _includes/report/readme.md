@@ -2,21 +2,21 @@
 
 ### Blockchain
 
-[Vanar chain](https://beosin.com/audits/Vanar_202405241000.pdf)
+[Vanar chain](https://beosin.com/audits/Vanar_202405241000.pdf){:target="_blank"}
 
-[Self Chain](https://beosin.com/audits/Self-Chain_202404191527.pdf)
+[Self Chain](https://beosin.com/audits/Self-Chain_202404191527.pdf){:target="_blank"}
 
-[Over Chain](https://beosin.com/audits/OverFoundation_202405161539.pdf)
+[Over Chain](https://beosin.com/audits/OverFoundation_202405161539.pdf){:target="_blank"}
 
-[ZkSync-Era Update](https://secure3-public-docs.s3.us-west-2.amazonaws.com/pdf/533/f24b8b2d.pdf)
+[ZkSync-Era Update](https://secure3-public-docs.s3.us-west-2.amazonaws.com/pdf/533/f24b8b2d.pdf){:target="_blank"}
 
-[DomiChain AI](https://secure3-public-docs.s3.us-west-2.amazonaws.com/pdf/1069/38ff362a.pdf)
+[DomiChain AI](https://secure3-public-docs.s3.us-west-2.amazonaws.com/pdf/1069/38ff362a.pdf){:target="_blank"}
 
 MakerChain
 
 ### SmartContract
 
-[Onton Finance]()
+[Onton Finance](https://beosin.com/audits/Onton_Finance_202409111254.pdf){:target="_blank"}
 
 [Apepe Token](https://beosin.com/audits/APEPE_202408151125.pdf){:target="_blank"}
 
