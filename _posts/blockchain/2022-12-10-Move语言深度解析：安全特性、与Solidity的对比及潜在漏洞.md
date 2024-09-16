@@ -132,7 +132,7 @@ Move 采用静态调用方式。即**Move实现的合约在部署时，其执行
 
 ![Untitled](/images/posts/blockchain/move_2.png)
 
-图源自[https://github.com/move-language/move/tree/main/language/documentation/tutorial](https://github.com/move-language/move/tree/main/language/documentation/tutorial)
+图源自[https://github.com/move-language/move/tree/main/language/documentation/tutorial](https://github.com/move-language/move/tree/main/language/documentation/tutorial){:target="_blank"}
 
 **Move：**
 
@@ -140,7 +140,7 @@ Move 中，类比 solidity 智能合约的 **模块Module** 没有自己存储�
 
 ![Untitled](/images/posts/blockchain/move_3.png)
 
-图源自[https://github.com/move-language/move/tree/main/language/documentation/tutorial](https://github.com/move-language/move/tree/main/language/documentation/tutorial)
+图源自[https://github.com/move-language/move/tree/main/language/documentation/tutorial](https://github.com/move-language/move/tree/main/language/documentation/tutorial){:target="_blank"}
 
 ### 代码存储
 
@@ -186,7 +186,7 @@ Move 语言中对于合约升级，其实现是在系统模块`code.move`中执�
 
 ![Untitled](/images/posts/blockchain/move_9.png)
 
-图截取自[https://github.com/aptos-labs/aptos-core/blob/main/aptos-move/framework/aptos-framework/sources/code.move#L132](https://github.com/aptos-labs/aptos-core/blob/main/aptos-move/framework/aptos-framework/sources/code.move#L132)
+图截取自[https://github.com/aptos-labs/aptos-core/blob/main/aptos-move/framework/aptos-framework/sources/code.move#L132](https://github.com/aptos-labs/aptos-core/blob/main/aptos-move/framework/aptos-framework/sources/code.move#L132){:target="_blank"}
 
 ## Move 程序可能出现的漏洞点
 
@@ -206,10 +206,10 @@ Move 语言中对于合约升级，其实现是在系统模块`code.move`中执�
 
 > 参考文献
 >
-> [https://developers.diem.com/docs/technical-papers/move-paper/](https://developers.diem.com/docs/technical-papers/move-paper/)
+> [Move Paper](https://developers.diem.com/docs/technical-papers/move-paper/){:target="_blank"}
 >
-> [https://mirror.xyz/asmp.eth/xUzqdBXewRPhLKLAYekiwU5S9uFiTnJ3f56KbkcOz-M](https://mirror.xyz/asmp.eth/xUzqdBXewRPhLKLAYekiwU5S9uFiTnJ3f56KbkcOz-M)
+> [加密后浪强势来袭：Move 将如何书写新篇章](https://mirror.xyz/asmp.eth/xUzqdBXewRPhLKLAYekiwU5S9uFiTnJ3f56KbkcOz-M){:target="_blank"}
 >
-> [https://mirror.xyz/jolestar.eth/sQ0nMCO3eNig6gCzqQO7xew1mn8oUi1-rKtfZKmGlNI](https://mirror.xyz/jolestar.eth/sQ0nMCO3eNig6gCzqQO7xew1mn8oUi1-rKtfZKmGlNI)
+> [为什么是 Move 之编程语言的生态构建](https://mirror.xyz/jolestar.eth/sQ0nMCO3eNig6gCzqQO7xew1mn8oUi1-rKtfZKmGlNI){:target="_blank"}
 >
-> [https://medium.com/@kklas/smart-contract-development-move-vs-rust-4d8f84754a8f](https://medium.com/@kklas/smart-contract-development-move-vs-rust-4d8f84754a8f)
+> [Smart Contract Development — Move vs. Rust](https://medium.com/@kklas/smart-contract-development-move-vs-rust-4d8f84754a8f){:target="_blank"}
