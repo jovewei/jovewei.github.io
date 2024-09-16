@@ -213,3 +213,5 @@ Move 语言中对于合约升级，其实现是在系统模块`code.move`中执�
 > [为什么是 Move 之编程语言的生态构建](https://mirror.xyz/jolestar.eth/sQ0nMCO3eNig6gCzqQO7xew1mn8oUi1-rKtfZKmGlNI){:target="_blank"}
 >
 > [Smart Contract Development — Move vs. Rust](https://medium.com/@kklas/smart-contract-development-move-vs-rust-4d8f84754a8f){:target="_blank"}
+
+> 备注：文章微改后发表于「Beosin」公众号
