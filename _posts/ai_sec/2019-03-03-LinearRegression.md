@@ -6,7 +6,7 @@ subtitle: 从假设、损失函数、优化、正则到代码实现，简述线�
 date:   2019-03-03 22:04:18 +0800
 author: "Bryce"
 header-img:  'images/gallery/The-disturbing-muses.jpg'
-tags:   [AI与安全, 机器学习]
+tags:   [AI安全, 机器学习]
 mathjax: true
 ---
 
