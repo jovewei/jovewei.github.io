@@ -16,9 +16,11 @@ MakerChain
 
 ### SmartContract
 
+[Elfin Metaverse](https://beosin.com/audits/Elfin_Metaverse_202409191635.pdf){:target="_blank"}
+
 [Oceanic Protocol](https://beosin.com/audits/Oceanic%20Protocol_202409141639.pdf){:target="_blank"}
 
-[Sonic - HyperFuse Guardian Nodes](https://beosin.com/audits/HyperFuse_Guardian_Nodes_202409111918.pdf){:target="_blank"}
+[Solana - HyperFuse Guardian Nodes](https://beosin.com/audits/HyperFuse_Guardian_Nodes_202409111918.pdf){:target="_blank"}
 
 [Onton Finance](https://beosin.com/audits/Onton%20Finance_202409121334.pdf){:target="_blank"}
 
