@@ -16,6 +16,8 @@ MakerChain
 
 ### SmartContract
 
+[Solana - InterBridge](https://beosin.com/audits/InterBridge-Solana_202410161618.pdf){:target="_blank"}
+
 Ton - STON.fi Decentralized Farms
 
 [Business Entities](https://beosin.com/audits/Business-Entities_202409301658.pdf){:target="_blank"}
