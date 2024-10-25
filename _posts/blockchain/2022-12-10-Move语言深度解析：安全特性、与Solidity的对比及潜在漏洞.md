@@ -4,7 +4,7 @@ layout: post
 title:  Move语言深度解析：安全特性、与Solidity的对比及潜在漏洞
 subtitle: 从安全设计到实战对比，深入探讨Move语言的独特魅力与隐藏风险
 date:   2022-12-10 21:40:00 +0800
-author: "Bryce"
+author: "Yewbs"
 header-img:  'images/gallery/the-conspiracy-of-the-batavians-under-claudius-civilis-rembrandt-harmensz-van-rijn.jpg'
 tags:   [区块链, Move]
 ---

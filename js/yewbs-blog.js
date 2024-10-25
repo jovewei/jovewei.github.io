@@ -5,13 +5,13 @@
  */
 
 /*!
-* Bryce Blog v1.6.0 (http://startbootstrap.com)
-* Copyright 2016 @bryce
+* Yewbs Blog v1.6.0 (http://startbootstrap.com)
+* Copyright 2016 @yewbs
 * Licensed under Apache 2.0 
 */
 
 // Tooltip Init
-// Unuse by bryce since V1.6: Titles now display by default so there is no need for tooltip
+// Unuse by yewbs since V1.6: Titles now display by default so there is no need for tooltip
 // $(function() {
 //     $("[data-toggle='tooltip']").tooltip();
 // });
@@ -19,7 +19,7 @@
 
 // make all images responsive
 /* 
- * Unuse by bryce
+ * Unuse by yewbs
  * actually only Portfolio-Pages can't use it and only post-img need it.
  * so I modify the _layout/post and CSS to make post-img responsive!
  */

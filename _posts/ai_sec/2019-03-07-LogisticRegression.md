@@ -4,7 +4,7 @@ layout: post
 title:  逻辑回归 Logistic Regression
 subtitle: 从假设、损失函数、优化、正则到代码实现，简述逻辑回归的核心
 date:   2019-03-07 20:15:25 +0800
-author: "Bryce"
+author: "Yewbs"
 header-img:  'images/gallery/The-Death-of-Sardanapalus.jpg'
 tags:   [AI安全, 机器学习]
 mathjax: true
@@ -98,9 +98,9 @@ $
 ```python
 # coding=UTF-8
 '''
-@Author: Bryce Wei
+@Author: Yewbs Wei
 @Date: 2019-08-05 17:58:35
-@LastEditors: Bryce Wei
+@LastEditors: Yewbs Wei
 @LastEditTime: 2019-08-06 17:30:33
 @Description: 使用梯度下降方法实现Logistic Regression
 '''

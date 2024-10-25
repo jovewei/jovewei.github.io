@@ -4,7 +4,7 @@ layout: post
 title:  Scroll深度剖析：架构、技术与zkEVM电路审计
 subtitle: 10月10日，以太坊二层解决方案 Scroll 主网产生了第一个区块
 date:   2023-11-05 19:45:00 +0800
-author: "Bryce"
+author: "Yewbs"
 header-img:  'images/gallery/four-immortals-paying-homage-to-longevity-shang-xi-15th-c.jpg'
 tags:   [区块链, ZKP, Scroll]
 ---

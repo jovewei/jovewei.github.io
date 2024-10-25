@@ -1,11 +1,11 @@
 # Site settings
-title: Bryce Blog
-SEOTitle: Bryce Blog
+title: Yewbs Blog
+SEOTitle: Yewbs Blog
 header-img: images/gallery/monk-by-the-sea-caspar-david-friedrich.jpg
 
 email: huaqiang.wei@gmail.com
-description: "这里是 @bryce 的个人博客 | 不是每件事都注定会成功，但每件事都值得一试"
-keyword: "Bryce, bryce wai, @brycewai, 博客, 个人网站, 互联网, 安全, 网络安全, 人工智能安全, 物联网安全, 区块链, 区块链安全, web3"
+description: "这里是 @yewbs 的个人博客 | 不是每件事都注定会成功，但每件事都值得一试"
+keyword: "Yewbs, yewbs wai, @yewbs, 博客, 个人网站, 互联网, 安全, 网络安全, 人工智能安全, 物联网安全, 区块链, 区块链安全, web3"
 url: "" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -16,9 +16,9 @@ future: true
 RSS: false
 # weibo_username:
 # zhihu_username:
-github_username: brycewai
-twitter_username: brycewai
-#facebook_username:  brycewai
+github_username: yewbs
+twitter_username: yewbs
+#facebook_username:  yewbs
 #linkedin_username:  firstname-lastname-idxxxx
 
 # Build settings
@@ -52,7 +52,7 @@ kramdown:
       start_line: 1
 
 # Disqus settings
-disqus_shortname: brycewai-github-io
+disqus_shortname: yewbs-github-io
 
 # Netease settings
 netease_comment: false
@@ -63,7 +63,7 @@ netease_comment: false
 
 # Google Analytics
 ga_track_id: G-NS3LE8YMXJ # Format: UA-xxxxxx-xx
-# ga_domain: brycewai.github.io
+# ga_domain: yewbs.github.io
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.

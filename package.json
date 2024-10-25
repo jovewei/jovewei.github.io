@@ -1,14 +1,14 @@
 {
-    "name": "bryce-blog",
-    "title": "Bryce Blog",
-    "author": "Bryce",
+    "name": "yewbs-blog",
+    "title": "Yewbs Blog",
+    "author": "Yewbs",
     "version": "1.0.0",
-    "homepage": "https://brycewai.github.io/",
+    "homepage": "https://yewbs.github.io/",
     "repository": {
         "type": "git",
-        "url": "https://github.com/brycewai/brycewai.github.io"
+        "url": "https://github.com/yewbs/yewbs.github.io"
     },
-    "bugs": "https://github.com/brycewai/brycewai.github.io/issues",
+    "bugs": "https://github.com/yewbs/yewbs.github.io/issues",
     "devDependencies": {
         "grunt": ">=1.5.3",
         "grunt-banner": "~0.2.3",

@@ -4,7 +4,7 @@ layout: post
 title:  Poseidon：简化生成与验证的ZK-Friendly哈希函数
 subtitle: Poseidon 是一种在生成和验证零知识证明时最大限度地降低证明者和验证者的复杂性的哈希函数
 date:   2024-03-17 16:12:00 +0800
-author: "Bryce"
+author: "Yewbs"
 header-img:  'images/gallery/jiu-fanggao.jpg'
 tags:   [区块链, 密码学, 哈希函数, Poseidon]
 mathjax: true

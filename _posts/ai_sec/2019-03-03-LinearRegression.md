@@ -4,7 +4,7 @@ layout: post
 title:  线性回归 Linear Regression
 subtitle: 从假设、损失函数、优化、正则到代码实现，简述线性回归的核心
 date:   2019-03-03 22:04:18 +0800
-author: "Bryce"
+author: "Yewbs"
 header-img:  'images/gallery/The-disturbing-muses.jpg'
 tags:   [AI安全, 机器学习]
 mathjax: true
@@ -90,9 +90,9 @@ $$
 
 # coding=UTF-8
 '''
-@Author: Bryce Wei
+@Author: Yewbs Wei
 @Date: 2019-08-02 15:45:54
-@LastEditors: Bryce Wei
+@LastEditors: Yewbs Wei
 @LastEditTime: 2019-08-02 18:01:23
 @Description: Handwriting Linear Regression
 '''
