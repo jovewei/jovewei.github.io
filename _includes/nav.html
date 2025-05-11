@@ -17,7 +17,7 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div id="yewbsblog_navbar">
+            <div id="Joveblog_navbar">
                 <div class="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -50,10 +50,10 @@
         // in high-perf jank-free CSS3 implementation
         var $body = document.body;
         var $toggle = document.querySelector('.navbar-toggle');
-        var $navbar = document.querySelector('#yewbsblog_navbar');
+        var $navbar = document.querySelector('#Joveblog_navbar');
         var $collapse = document.querySelector('.navbar-collapse');
 
-        var __yewbsNav__ = {
+        var __JoveNav__ = {
             close: function () {
                 $navbar.className = " ";
                 // wait until animation end.
@@ -73,9 +73,9 @@
         // Bind Event
         $toggle.addEventListener('click', function (e) {
             if ($navbar.className.indexOf('in') > 0) {
-                __yewbsNav__.close()
+                __JoveNav__.close()
             } else {
-                __yewbsNav__.open()
+                __JoveNav__.open()
             }
         })
 
@@ -86,13 +86,13 @@
          * $toggle/$collapse will break global delegation.
          * 
          * Instead, we use a 'e.target' filter to prevent handler
-         * added to document close yewbsNav.  
+         * added to document close JoveNav.  
          *
          * Also, we use 'click' instead of 'touchstart' as compromise
          */
         document.addEventListener('click', function (e) {
             if (e.target == $toggle) return;
             if (e.target.className == 'icon-bar') return;
-            __yewbsNav__.close();
+            __JoveNav__.close();
         })
     </script>

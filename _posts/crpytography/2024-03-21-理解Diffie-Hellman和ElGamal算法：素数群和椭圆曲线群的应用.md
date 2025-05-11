@@ -4,7 +4,7 @@ layout: post
 title:  理解Diffie-Hellman和ElGamal算法：素数群和椭圆曲线群的应用
 subtitle: 密码学基石
 date:   2024-03-21 14:02:00 +0800
-author: "Yewbs"
+author: "Jove"
 header-img:  'images/gallery/running-together.jpg'
 tags:   [区块链, 密码学, 椭圆曲线, DH, ElGammal]
 mathjax: true

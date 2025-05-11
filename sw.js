@@ -1,7 +1,7 @@
 /* ===========================================================
  * sw.js
  * ===========================================================
- * Copyright 2016 @yewbs
+ * Copyright 2025 @Jove
  * Licensed under Apache 2.0
  * service worker scripting
  * ========================================================== */
@@ -17,13 +17,13 @@ const PRECACHE_LIST = [
   "./offline.html",
   "./js/jquery.min.js",
   "./js/bootstrap.min.js",
-  "./js/yewbs-blog.min.js",
+  "./js/wei-blog.min.js",
   "./js/snackbar.js",
   "/images/public/logo.png",
   "/images/public/01-1.jpg",
   "/images/public/contact.jpg",
   "/images/public/404-bg.jpg",
-  "./css/yewbs-blog.min.css",
+  "./css/wei-blog.min.css",
   "./css/bootstrap.min.css"
   // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css",
   // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/fonts/fontawesome-webfont.woff2?v=4.6.3",

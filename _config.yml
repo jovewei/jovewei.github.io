@@ -1,11 +1,11 @@
 # Site settings
-title: Yewbs Blog
-SEOTitle: Yewbs Blog
+title: Jove's Blog
+SEOTitle: Jove Blog
 header-img: images/gallery/monk-by-the-sea-caspar-david-friedrich.jpg
 
 email: huaqiang.wei@gmail.com
-description: "这里是 @yewbs 的个人博客 | 不是每件事都注定会成功，但每件事都值得一试"
-keyword: "Yewbs, yewbs wai, @yewbs, 博客, 个人网站, 互联网, 安全, 网络安全, 人工智能安全, 物联网安全, 区块链, 区块链安全, web3"
+description: "这里是 @Jove 的个人博客 | 不是每件事都注定会成功，但每件事都值得一试"
+keyword: "Jove, Jove Wei, @Jove, 博客, 个人网站, 互联网, 安全, 网络安全, 人工智能安全, 物联网安全, 区块链, 区块链安全, web3"
 url: "" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -16,9 +16,9 @@ future: true
 RSS: false
 # weibo_username:
 # zhihu_username:
-github_username: yewbs
-twitter_username: yewbs
-#facebook_username:  yewbs
+github_username: Jovewei
+twitter_username: Brycewai
+#facebook_username:  Jove
 #linkedin_username:  firstname-lastname-idxxxx
 
 # Build settings
@@ -52,7 +52,7 @@ kramdown:
       start_line: 1
 
 # Disqus settings
-disqus_shortname: yewbs-github-io
+disqus_shortname: bryce-ink
 
 # Netease settings
 netease_comment: false
@@ -63,7 +63,7 @@ netease_comment: false
 
 # Google Analytics
 ga_track_id: G-NS3LE8YMXJ # Format: UA-xxxxxx-xx
-# ga_domain: yewbs.github.io
+# ga_domain: Jove.github.io
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.

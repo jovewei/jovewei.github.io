@@ -1,14 +1,14 @@
 {
-    "name": "yewbs-blog",
-    "title": "Yewbs Blog",
-    "author": "Yewbs",
+    "name": "Jove-blog",
+    "title": "Jove Blog",
+    "author": "Jove",
     "version": "1.0.0",
-    "homepage": "https://yewbs.github.io/",
+    "homepage": "https://Jovewei.github.io/",
     "repository": {
         "type": "git",
-        "url": "https://github.com/yewbs/yewbs.github.io"
+        "url": "https://github.com/Jovewei/Jovewei.github.io"
     },
-    "bugs": "https://github.com/yewbs/yewbs.github.io/issues",
+    "bugs": "https://github.com/Jovwei/Jovewei.github.io/issues",
     "devDependencies": {
         "grunt": ">=1.5.3",
         "grunt-banner": "~0.2.3",

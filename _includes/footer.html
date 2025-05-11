@@ -29,7 +29,7 @@
 <script src="{{ " /js/bootstrap.min.js " | prepend: site.baseurl }}"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="{{ " /js/yewbs-blog.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ " /js/wei-blog.min.js " | prepend: site.baseurl }}"></script>
 
 <!-- Simple Jekyll Search -->
 <script src="{{ " /js/simple-jekyll-search.min.js" | prepend: site.baseurl }}"></script>
@@ -56,7 +56,7 @@
      Because of the native support for backtick-style fenced code blocks
      right within the Markdown is landed in Github Pages,
      From V1.6, There is no need for Highlight.js,
-     so yewbsblog drops it officially.
+     so Joveblog drops it officially.
 
      - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
      - https://help.github.com/articles/creating-and-highlighting-code-blocks/
@@ -124,7 +124,7 @@
 <!-- Baidu Tongji -->
 {% if site.ba_track_id %}
 <script>
-    // dynamic User by yewbs
+    // dynamic User by Jove
     var _baId = '{{ site.ba_track_id }}';
 
     // Originial
@@ -180,7 +180,7 @@
 
     /*
      * Doc: https://github.com/davist11/jQuery-One-Page-Nav
-     * Fork by yewbs to support padding
+     * Fork by Jove to support padding
      */
     async("{{ '/js/jquery.nav.js' | prepend: site.baseurl }}", function () {
         $('.catalog-body').onePageNav({
